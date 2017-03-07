@@ -1,8 +1,8 @@
 #  MEGGlobalOperations
 
-### Authors: Joe Raio, Dave Voyles
-### Site: [JoeRaio.com](http://joeraio.com/) | [DaveVoyles.com](http://www.davevoyles.com)
-### Twitter: [@JoeScars](http://www.twitter.com/JoeScars) | [@DaveVoyles](http://www.Twitter.com/DaveVoyles) 
+### Authors: Joe Raio, Dave Voyles, David Crook
+### Site: [JoeRaio.com](http://joeraio.com/) | [DaveVoyles.com](http://www.davevoyles.com) | [DaCrook.com](http://www.dacrook.com)
+### Twitter: [@JoeScars](http://www.twitter.com/JoeScars) | [@DaveVoyles](http://www.Twitter.com/DaveVoyles)  | [@Data4Bots](http://www.twitter.com/data4bots)
 
 Proof of Concept for MGO
 
