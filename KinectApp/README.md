@@ -1,10 +1,8 @@
-#  MEGGlobalOperations
+# kinect-skeletal-blob-upload
 
-### Authors: Joe Raio, Dave Voyles
-### Site: [JoeRaio.com](http://joeraio.com/) | [DaveVoyles.com](http://www.davevoyles.com)
-### Twitter: [@JoeScars](http://www.twitter.com/JoeScars) | [@DaveVoyles](http://www.Twitter.com/DaveVoyles) 
-
-Proof of Concept for MGO
+### Author: Dave Voyles
+### Site: [DaveVoyles.com](http://www.davevoyles.com)
+### Twitter: [@DaveVoyles](http://www.Twitter.com/DaveVoyles)
 
 --------------------------
 
