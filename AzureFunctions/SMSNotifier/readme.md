@@ -1,11 +1,6 @@
-# QueueTrigger - C<span>#</span>
+# SMS Notifier 
 
-The `QueueTrigger` makes it incredibly easy to react to new Queues inside of Azure Queue Storage. This sample demonstrates a simple use case of processing data from a given Queue using C#.
+This `QueueTrigger` function fires off a SMS message via [Twilio](https://www.twilio.com/) when a message is added to the queue. 
 
-## How it works
+The content of the Queue Message itself it what is sent.
 
-For a `QueueTrigger` to work, you must provide a queue name that defines the queue messages will be read from.
-
-## Learn more
-
-<TODO> Documentation
