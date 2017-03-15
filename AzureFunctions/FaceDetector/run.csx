@@ -15,9 +15,8 @@ using Microsoft.ProjectOxford.Face.Contract;
 using Newtonsoft.Json;
 using System.Net;
 using System.Text;
-using Twilio;
 
-public static void Run(Stream myBlob, string name, TraceWriter log)
+public static void Run(Stream myBlob, string name, TraceWriter log, out string outputQueueItem)
 {
     log.Info($"C# Blob trigger function Processed blob\n Name:{name}");
 
@@ -36,25 +35,12 @@ public static void Run(Stream myBlob, string name, TraceWriter log)
         faceRect.Left, 
         faceRect.Top)).ToArray();
 
-    // TODO: Do something with the result
+    // TODO: Archive Result in Azure Table Storage
 
-    // Create a message
+    // Create a message in Azure Queue for Twilio Notifier to pickup
     string msg = $"Notification! {faceRects.Count()} Faces Detected";
-
-    // Setup Twilio
-    string AccountSid = ConfigurationManager.AppSettings["TwilioAccountSID"];
-    string AuthToken = ConfigurationManager.AppSettings["TwilioAuthToken"];
-    var twilio = new TwilioRestClient(AccountSid, AuthToken);
-
-    // Send to Twilio
-    log.Info("Attempting to Send Message");
-    var message = twilio.SendMessage(
-        ConfigurationManager.AppSettings["TwilioFrom"],
-        ConfigurationManager.AppSettings["TwilioTo"],
-        msg
-    );
-
-    log.Info("Message sent with ID: " + message.Sid);
+    log.Info(msg);
+    outputQueueItem = msg;   
 
 }
 

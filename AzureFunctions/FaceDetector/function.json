@@ -7,6 +7,13 @@
             "direction": "in",
             "path": "kinectdata/{name}",
             "connection":"AzureStorageBlobConnectionString"
+        },
+        {
+        "type": "queue",
+        "name": "outputQueueItem",
+        "queueName": "facenotifyqueue",
+        "connection": "AzureStorageBlobConnectionString",
+        "direction": "out"
         }
     ]
 }
