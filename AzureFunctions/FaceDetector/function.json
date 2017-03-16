@@ -9,11 +9,18 @@
             "connection":"AzureStorageBlobConnectionString"
         },
         {
-        "type": "queue",
-        "name": "outputQueueItem",
-        "queueName": "facenotifyqueue",
-        "connection": "AzureStorageBlobConnectionString",
-        "direction": "out"
+            "type": "queue",
+            "name": "outputQueueItem",
+            "queueName": "facenotifyqueue",
+            "connection": "AzureStorageBlobConnectionString",
+            "direction": "out"
+        },
+        {
+            "type": "table",
+            "name": "tableBinding",
+            "tableName": "facearchive",
+            "connection": "AzureStorageBlobConnectionString",
+            "direction": "out"
         }
     ]
 }

@@ -16,7 +16,7 @@ using Newtonsoft.Json;
 using System.Net;
 using System.Text;
 
-public static void Run(Stream myBlob, string name, TraceWriter log, out string outputQueueItem)
+public static void Run(Stream myBlob, string name, TraceWriter log, out string outputQueueItem, ICollector<FaceResult> tableBinding)
 {
     log.Info($"C# Blob trigger function Processed blob\n Name:{name}");
 
@@ -35,11 +35,19 @@ public static void Run(Stream myBlob, string name, TraceWriter log, out string o
         faceRect.Left, 
         faceRect.Top)).ToArray();
 
-    // TODO: Archive Result in Azure Table Storage
-
-    // Create a message in Azure Queue for Twilio Notifier to pickup
+    // Create a message for Azure Queue for Twilio Notifier to pickup
     string msg = $"Notification! {faceRects.Count()} Faces Detected";
     log.Info(msg);
+
+    // Archive Result in Azure Table Storage
+    tableBinding.Add(
+        new FaceResult() { 
+            PartitionKey = "FaceTracking", 
+            RowKey = name, 
+            Message = msg }
+        );
+
+    // Send to Azure Queue
     outputQueueItem = msg;   
 
 }
@@ -58,4 +66,11 @@ public class Face
         this.Loc_x = Loc_x;
         this.Loc_y = Loc_y;
     }
+}
+
+public class FaceResult
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Message { get; set; }
 }
