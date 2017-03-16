@@ -6,3 +6,5 @@ To do this, we use  [Microsoft Cognitive Services Face API](https://www.microsof
 
 We then write the output (number of faces) as a message to an [Azure Storage Queue](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-queues). The SMS Notifier function watches that queue and fires off messages from there. 
 
+In addition, we archive the result in [Azure Table Storage](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-how-to-use-tables)
+
