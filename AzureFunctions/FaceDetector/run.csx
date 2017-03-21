@@ -21,9 +21,7 @@ public static void Run(Stream myBlob, string name, TraceWriter log, out string o
     log.Info($"C# Blob trigger function Processed blob\n Name:{name}");
 
     IFaceServiceClient faceServiceClient = new FaceServiceClient(ConfigurationManager.AppSettings["CognitiveServiceAPIKey"]);
-
     var recognizedFaces = faceServiceClient.DetectAsync(myBlob).Result;
-
     var faceRects = recognizedFaces.Select(face => face.FaceRectangle);
 
     log.Info($"Detected {faceRects.Count()} Faces");
@@ -47,7 +45,7 @@ public static void Run(Stream myBlob, string name, TraceWriter log, out string o
             Message = msg }
         );
 
-    // Send to Azure Queue
+    // Send to Azure Storage Queue
     outputQueueItem = msg;   
 
 }
